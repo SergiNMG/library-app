@@ -1,0 +1,26 @@
+[
+  {
+    "id": "OL30448691M",
+    "title": "Cien años de soledad",
+    "author": "Gabriel García Márquez",
+    "publicationDate": "1967"
+  },
+  {
+    "id": "OL7885696M",
+    "title": "Charlotte's Web",
+    "author": "E.B White y Guillermo Solana",
+    "publicationDate": "1970"
+  },
+  {
+    "id": "OL47117395M",
+    "title": "Don Quijote de la Mancha",
+    "author": "Miguel de Cervantes",
+    "publicationDate": "1605"
+  },
+  {
+    "id": "OL33338961M",
+    "title": "1984",
+    "author": "George Orwell",
+    "publicationDate": "1949"
+  }
+]

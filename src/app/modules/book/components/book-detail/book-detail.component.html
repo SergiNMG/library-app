@@ -1,0 +1,48 @@
+<header *ngIf="loading">
+    <div class="text-center my-5">
+        <!-- <div class="spinner-border" role="status">
+        </div> -->
+        <l-newtons-cradle></l-newtons-cradle>
+        <p><span class="sr-only">Loading...</span></p>
+    </div>
+</header>
+<section *ngIf="bookSelected && !loading" class="d-flex flex-column flex-wrap align-items-center my-2">
+    <h1>Detalle de libro</h1>
+    <article class="l-columns l-columns--1 l-columns--2@mobile l-columns--4@tablet 
+        g--background-color-beige-1 w-75 rounded p-3">
+        <div class="l-columns__area--span-1 l-columns__area--span-3@tablet d-flex flex-column">
+            <div class="mb-auto">
+                <div class="d-flex flex-column flex-wrap">
+                    <h1 class="my-0 mb-1">{{bookSelected.title}}</h1>
+                    <ng-container *ngIf="authorList">
+                        <h4 *ngFor="let author of authorList">{{author.name}}</h4>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="l-columns__area--span-1 l-columns__area--span-1@tablet d-flex">
+            <img class="ms-auto me-auto me-md-0 rounded" src='https://covers.openlibrary.org/b/olid/{{olid}}-L.jpg'>
+        </div>
+        <div class="l-columns__area--span-1 l-columns__area--span-4@tablet">
+            <ng-container *ngIf="works">
+                <p *ngFor="let work of works">{{work.description}}</p>
+            </ng-container>
+        </div>
+        <div
+            class="l-columns__area--span-1 l-columns__area--span-4@tablet d-flex flex-row flex-wrap mt-auto justify-content-center gap-3 text-center">
+            <div class="d-flex flex-wrap flex-column rounded p-2 c-author__info">
+                <p>Publicación:</p>
+                <p class="fw-bold">{{bookSelected.publish_date}}</p>
+            </div>
+            <div class="d-flex flex-wrap flex-column rounded p-2 c-author__info">
+                <p>Editorial:</p>
+                <p class="fw-bold">{{bookSelected.publishers}}</p>
+            </div>
+            <div class="d-flex flex-wrap flex-column rounded p-2 c-author__info">
+                <p>Páginas:</p>
+                <p *ngIf="bookSelected.number_of_pages !== 0" class="fw-bold">{{bookSelected.number_of_pages}}</p>
+                <p *ngIf="bookSelected.number_of_pages === 0"> ? </p>
+            </div>
+        </div>
+    </article>
+</section>

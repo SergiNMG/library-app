@@ -1,0 +1,28 @@
+<section *ngIf="book" class="d-flex flex-column flex-wrap align-items-center my-2">
+    <article class="l-columns l-columns--1 l-columns--2@mobile l-columns--4@tablet 
+        g--background-color-beige-1 w-75 rounded p-3" routerLink="/books/{{book.id}}">
+        <div class="l-columns__area--span-1 l-columns__area--span-3@tablet d-flex flex-column">
+            <div class="mb-auto">
+                <div class="d-flex flex-row flex-wrap align-items-center">
+                    <h1 class="my-0 mb-1">{{book.title}}</h1>
+                    <button *ngIf="listType === 'bookList'" class="btn btn-lg border-0"
+                        (click)="addToWishList(book, $event)">
+                        <i class="bi bi-star"></i>
+                    </button>
+                    <button *ngIf="listType === 'wishList'" class="btn btn-lg border-0"
+                        (click)="deleteFromWishList(book, $event)">
+                        <i class="bi bi-star-fill"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <p class="mb-0">Primera publicación en el año:
+                    {{book.publicationDate}}
+                </p>
+            </div>
+        </div>
+        <div class="l-columns__area--span-1 l-columns__area--span--1@tablet d-flex">
+            <img class="ms-auto me-auto me-md-0 rounded" src='https://covers.openlibrary.org/b/olid/{{book.id}}-L.jpg'>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/scss/01_variables/font-style";
+
+@import "assets/scss/02_base/normalize";
+
+@import "assets/scss/03_layout/l-columns";
+
+@import "assets/scss/06_global/g--color";
+
+body {
+  background-color: var(--color-beige-3);
+}

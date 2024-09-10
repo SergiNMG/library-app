@@ -1,0 +1,2 @@
+<app-book-card *ngFor="let book of bookList" [book]="book" [listType]="listType"
+    (addToWishListEvent)="addToWishList($event)" (deleteFromWishListEvent)="deleteFromWishList($event)" />

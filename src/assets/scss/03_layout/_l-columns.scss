@@ -1,0 +1,43 @@
+$breakpoints: (
+  "": 567px,
+  "tablet": 768px,
+  "desktop": 992px,
+  "full-desktop": 1200px,
+);
+
+$columns: (1, 2, 3, 4, 5, 6);
+
+.l-columns {
+  display: grid;
+  gap: 15px;
+
+  @for $i from 1 through length($columns) {
+    &--#{$i} {
+      grid-template-columns: repeat($i, 1fr);
+    }
+
+    &__area--span-#{$i} {
+      grid-column: span $i;
+    }
+  }
+
+  @each $breakpoint, $width in $breakpoints {
+    @media (min-width: $width) {
+      $separator: \@;
+
+      @if ($breakpoint == "") {
+        $separator: "";
+      }
+
+      @for $i from 1 through length($columns) {
+        &--#{$i}#{$separator}#{$breakpoint} {
+          grid-template-columns: repeat($i, 1fr);
+        }
+
+        &__area--span-#{$i}#{$separator}#{$breakpoint} {
+          grid-column: span $i;
+        }
+      }
+    }
+  }
+}

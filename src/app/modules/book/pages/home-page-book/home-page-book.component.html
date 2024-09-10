@@ -1,0 +1,10 @@
+<section *ngIf="wishList.length">
+    <h2 class="text-center my-4"> Lista de libros favoritos: </h2>
+    <app-book-list [bookList]="wishList" listType="wishList"
+        (deleteFromWishListEvent)="deleteBookFromWishList($event)" />
+</section>
+
+<section *ngIf="bookList">
+    <h2 class="text-center my-4"> Lista de libros: </h2>
+    <app-book-list [bookList]="bookList" listType="bookList" (addToWishListEvent)="addBookToWishList($event)" />
+</section>

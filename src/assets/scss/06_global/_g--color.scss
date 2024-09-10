@@ -1,0 +1,44 @@
+$colors: (
+  "beige": (
+    #fff2d7,
+    #ffe0b5,
+    #f8c794,
+    #d8ae7e,
+  ),
+);
+
+:root {
+  @each $color, $values in $colors {
+    @each $value in $values {
+      $i: index($values, $value);
+      --color-#{$color}-#{$i}: #{$value};
+    }
+  }
+}
+
+@each $color, $values in $colors {
+  @each $value in $values {
+    $i: index($values, $value);
+    .g--color-#{$color}-#{$i} {
+      color: var(--color-#{$color}-#{$i});
+    }
+  }
+}
+
+@each $color, $values in $colors {
+  @each $value in $values {
+    $i: index($values, $value);
+    .g--background-color-#{$color}-#{$i} {
+      background-color: var(--color-#{$color}-#{$i});
+    }
+  }
+}
+
+@each $color, $values in $colors {
+  @each $value in $values {
+    $i: index($values, $value);
+    .g--border-color-#{$color}-#{$i} {
+      border-color: var(--color-#{$color}-#{$i});
+    }
+  }
+}

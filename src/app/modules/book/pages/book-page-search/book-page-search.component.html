@@ -1,0 +1,30 @@
+<section>
+    <h1 class="text-center my-4">Búsqueda de libros</h1>
+    <div class="input-group mb-3 ms-auto me-auto w-50">
+        <input #titleInput (input)="onInput($event)" type="text" class="c-input form-control" placeholder="Title.."
+            aria-label="Title" aria-describedby="basic-addon1">
+        <div class="input-group-append">
+            <button [disabled]="!title" class="c-button btn btn-outline-dark" type="button"
+                (click)="getBooksByTitle()">Search</button>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="loading" class="text-center my-5">
+    <!-- <div class="spinner-border" role="status">
+    </div>
+    <p><span class="sr-only">Loading...</span></p> -->
+    <l-newtons-cradle size="78" speed="1.5" color="black"></l-newtons-cradle>
+</div>
+
+<section *ngIf="bookByTitleList.length">
+    <h2 class="text-center my-4"> Lista de libros: </h2>
+    <app-book-list *ngIf="!loading" [bookList]="bookByTitleList" listType="bookList"
+        (addToWishListEvent)="addBookToWishList($event)" />
+</section>
+
+<section *ngIf="noResults">
+    <h3 class="text-center my-4" *ngIf="!loading">
+        Sin resultados
+    </h3>
+</section>
